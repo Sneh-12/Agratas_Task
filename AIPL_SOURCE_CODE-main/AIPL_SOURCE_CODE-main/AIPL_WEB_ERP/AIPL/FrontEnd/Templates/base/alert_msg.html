@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <!-- Title tag  Meta Description for SEO --> 
+     <!--Meta Discription for SEO -->
+    <title>User Notification System for Keyword Research | Agratas Infotech SEO Solutions</title>
+    
+    <meta name="description" content="Improve your SEO performance with Agratas Infotech's user notification system. Get real-time success and error messages for your Keyword Research. Maximize SEO strategies for better visibility.">
+     <!-- Meta Keywords for SEO -->
+    <meta name="keywords" content="SEO notifications system, Keyword Research alerts, SEO success messages, SEO error messages, Agratas Infotech SEO strategies, performance optimization tools, SEO monitoring system">
+
+    <!-- Viewport for mobile optimization -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Implement Schema Markup for better SEO -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Keyword Research Notifications | Agratas Infotech",
+      "description": "Get real-time success and error messages related to Keyword Research and SEO strategies at Agratas Infotech. Enhance your SEO performance with clear notifications."
+    }
+    </script>
+    <link rel="stylesheet" href="{% static 'css/alert_msg.css' %}">
+</head>
+<body>
+<!--Optimize Headings  h1  and h2
+<h1>Real-Time Keyword Research Notifications for SEO Success</h1>-->
+
+{% if messages %}
+
+    <!--<h2>Monitor Success and Error Messages for Your SEO Strategy</h2>-->
+
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <div class="success">{{ message }}</div>
+        {% elif message.tags == 'error' %}
+            <div class="error">{{ message }}</div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<!-- Image with alt text optimized for SEO
+<img src="{% static 'images/keyword_research.png' %}" alt="Keyword Research success" />
+
+ Internal linking for SEO 
+<p>To learn more about SEO strategies, visit our <a href="/seo-guide/">SEO Guide</a> or read our article on <a href="/advanced-keyword-research/">Advanced Keyword Research Techniques</a>.</p>
+
+ Compressed JavaScript and CSS for minimizing page load time 
+<link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
+<script src="{% static 'js/main.min.js' %}"></script> -->
+<!-- Image with optimized alt text for SEO -->
+<!-- Use minified, deferred loading for performance -->
+<script src="{% static 'js/msgbox_configure.min.js' %}" defer></script>
+
+<!-- Prevent indexing and following of non-important pages -->
+{% if not important_page %}
+    <meta name="robots" content="noindex, nofollow">
+{% endif %}
+
+<!-- Tracking code to monitor page visitors (Google Analytics) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_TRACKING_ID');
+</script>
+    
+</body>
+</html>
